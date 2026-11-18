@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f9e7ed">
+<title>Litsi sale de la poderosa UNEJAM</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#634756;--muted:#a07c8e;--pink:#eaa3b8;--rose:#c76d91}*{box-sizing:border-box}html,body{margin:0;min-height:100%;overflow-x:hidden}body{font-family:'DM Sans',sans-serif;color:var(--ink);background:radial-gradient(ellipse at 15% 20%,#fffaf9 0%,transparent 45%),radial-gradient(ellipse at 90% 75%,#f9cfde 0%,transparent 50%),linear-gradient(145deg,#fff7f8,#f8e1e9 70%,#f6d8e5);min-height:100svh;display:grid;place-items:center;padding:35px 18px;position:relative}.grain{position:fixed;inset:0;pointer-events:none;opacity:.17;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E")}.orb{position:fixed;border-radius:50%;filter:blur(4px);pointer-events:none}.orb.one{width:340px;height:340px;left:-140px;top:-130px;background:#f5d2df80}.orb.two{width:440px;height:440px;right:-200px;bottom:-200px;background:#f0b4cd66}.scene{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:2}.card{position:relative;z-index:3;width:min(100%,900px);padding:clamp(34px,7vw,82px) clamp(20px,6vw,72px);border:1px solid #ffffffb8;border-radius:30px;text-align:center;background:#fffafa9e;box-shadow:0 30px 90px #9f5e8030,0 4px 20px #ffffff9c inset;backdrop-filter:blur(18px)}.floral{font-size:34px;line-height:1;margin-bottom:24px;filter:drop-shadow(0 4px 8px #cf8ba85c)}.heading{font-family:'Playfair Display',Georgia,serif;font-size:clamp(27px,5.9vw,62px);font-weight:500;line-height:1.12;letter-spacing:-.04em;margin:19px 0 17px}.heading em{display:block;color:#9f4f73;font-style:italic}.line{width:65px;height:1px;background:#dca1b8;margin:26px auto 38px}.countdown{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(7px,1.7vw,16px)}.unit{border-radius:19px;background:linear-gradient(160deg,#fff,#ffedf3);border:1px solid #f3dce4;box-shadow:0 9px 24px #bc82961a;padding:clamp(18px,3vw,30px) 5px 18px}.num{font-family:'Playfair Display',Georgia,serif;font-variant-numeric:tabular-nums;font-size:clamp(30px,6vw,62px);line-height:1.1;color:#8d536e;letter-spacing:-.05em}.label{margin-top:13px;font-size:clamp(9px,1.4vw,11px);letter-spacing:.15em;color:#825a6d;font-weight:700;text-transform:uppercase}.date{display:inline-flex;align-items:center;gap:9px;border:1px solid #eac4d3;background:#fff8fb;border-radius:99px;padding:10px 17px;margin-top:21px;font-size:12px;color:#854662}@media(max-width:520px){.card{border-radius:24px;padding:45px 15px}.countdown{gap:7px}.unit{border-radius:12px;padding:20px 2px 15px}.label{letter-spacing:0}.line{margin-bottom:30px}}
+.petal {
+  position: absolute;
+  top: -28px;
+  left: var(--left);
+  width: var(--width);
+  aspect-ratio: 3 / 4;
+  border-radius: 78% 22% 68% 32% / 65% 29% 71% 35%;
+  background: linear-gradient(138deg, #fff4f8 10%, #eda5bc 71%, #d97b9f);
+  box-shadow: inset 0 0 1px #fff9;
+  opacity: var(--opacity);
+  animation: fall var(--duration) var(--delay) linear infinite;
+}
+
+@keyframes fall {
+  from { transform: translate3d(0, 0, 0) rotate(0) rotateY(0); }
+  25% { transform: translate3d(calc(var(--drift) * .45), 30vh, 0) rotate(88deg) rotateY(30deg); }
+  50% { transform: translate3d(calc(var(--drift) * .12), 56vh, 0) rotate(182deg) rotateY(72deg); }
+  75% { transform: translate3d(calc(var(--drift) * .85), 83vh, 0) rotate(258deg) rotateY(148deg); }
+  to { transform: translate3d(var(--drift), calc(100vh + 56px), 0) rotate(360deg) rotateY(190deg); }
+}
+
+.card { animation: enter 760ms cubic-bezier(.22, .61, .36, 1) both; }
+
+@keyframes enter {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.floral { animation: float 5s ease-in-out infinite; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-6px) rotate(5deg); }
+}
+
+.branch {
+  position: fixed;
+  z-index: 1;
+  width: min(34vw, 340px);
+  opacity: .36;
+  pointer-events: none;
+  transform: rotate(var(--branch-angle));
+  animation: sway 9s ease-in-out infinite;
+}
+
+.branch.left {
+  --branch-angle: -15deg;
+  left: -70px;
+  top: -30px;
+  transform-origin: top left;
+}
+
+.branch.right {
+  --branch-angle: 160deg;
+  right: -90px;
+  bottom: -30px;
+  transform-origin: center;
+  animation-delay: -4s;
+}
+
+@keyframes sway {
+  50% { transform: rotate(calc(var(--branch-angle) + 4deg)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card, .branch, .floral { animation: none; }
+  .scene { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="grain"></div><div class="orb one"></div><div class="orb two"></div>
+<svg class="branch left" viewBox="0 0 360 360" aria-hidden="true"><path d="M-20 35Q120 60 255 270M90 68Q150 45 200 12M150 125Q228 112 285 55M188 174Q260 180 338 135" fill="none" stroke="#ab6c81" stroke-width="5" stroke-linecap="round"/><g fill="#e9a1b8"><circle cx="200" cy="12" r="14"/><circle cx="285" cy="55" r="17"/><circle cx="338" cy="135" r="13"/><circle cx="255" cy="270" r="19"/><circle cx="145" cy="47" r="13"/><circle cx="224" cy="113" r="11"/></g><g fill="#fff1f5"><circle cx="200" cy="12" r="5"/><circle cx="285" cy="55" r="5"/><circle cx="338" cy="135" r="4"/><circle cx="255" cy="270" r="6"/></g></svg>
+<svg class="branch right" viewBox="0 0 360 360" aria-hidden="true"><path d="M-20 35Q120 60 255 270M90 68Q150 45 200 12M150 125Q228 112 285 55M188 174Q260 180 338 135" fill="none" stroke="#ab6c81" stroke-width="5" stroke-linecap="round"/><g fill="#e9a1b8"><circle cx="200" cy="12" r="14"/><circle cx="285" cy="55" r="17"/><circle cx="338" cy="135" r="13"/><circle cx="255" cy="270" r="19"/><circle cx="145" cy="47" r="13"/><circle cx="224" cy="113" r="11"/></g></svg>
+<div class="scene" id="petals" aria-hidden="true"></div>
+<main class="card">
+  <div class="floral" aria-hidden="true"></div>
+  <h1 class="heading" id="heading">Litsi te falta esto para salir de<em>la poderosa UNEJAM</em></h1>
+  <div class="line" aria-hidden="true"></div>
+  <section class="countdown" role="timer" aria-label="Tiempo restante para que Litsi salga de la UNEJAM">
+    <div class="unit"><div class="num" id="days">00</div><div class="label">Días</div></div>
+    <div class="unit"><div class="num" id="hours">00</div><div class="label">Horas</div></div>
+    <div class="unit"><div class="num" id="minutes">00</div><div class="label">Minutos</div></div>
+    <div class="unit"><div class="num" id="seconds">00</div><div class="label">Segundos</div></div>
+  </section>
+  <time class="date" datetime="2027-01-28T00:00:00-05:00"><span aria-hidden="true">✿</span> 28 de enero de 2027</time>
+</main>
+<script>
+const target = Date.parse(document.querySelector('time').dateTime);
+const heading = document.getElementById('heading');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const digits = ['days', 'hours', 'minutes', 'seconds'].map(id => document.getElementById(id));
+const place = document.createElement('em');
+place.textContent = '¡Ya saliste de la poderosa UNEJAM!';
+
+function update(animate = true) {
+  const total = Math.max(0, Math.ceil((target - Date.now()) / 1000));
+  const parts = [
+    Math.floor(total / 86400),
+    Math.floor(total % 86400 / 3600),
+    Math.floor(total % 3600 / 60),
+    total % 60,
+  ];
+  digits.forEach((digit, index) => {
+    const value = String(parts[index]).padStart(2, '0');
+    if (digit.textContent === value) return;
+    digit.textContent = value;
+    if (animate && !reducedMotion.matches && digit.animate) {
+      digit.animate(
+        [{ transform: 'translateY(.22em)', opacity: .5 }, { transform: 'translateY(0)', opacity: 1 }],
+        { duration: 280, easing: 'cubic-bezier(.18, .67, .36, 1)' },
+      );
+    }
+  });
+
+  if (total === 0) {
+    heading.replaceChildren('¡Por fin, Litsi! ', place);
+    clearInterval(timer);
+  }
+}
+
+const timer = setInterval(update, 250);
+update(false);
+
+const scene = document.getElementById('petals');
+for (let index = 0; index < 32; index += 1) {
+  const petal = document.createElement('span');
+  const duration = 11 + Math.random() * 12;
+  petal.className = 'petal';
+  petal.style.setProperty('--left', `${Math.random() * 100}%`);
+  petal.style.setProperty('--width', `${7 + Math.random() * 10}px`);
+  petal.style.setProperty('--opacity', .36 + Math.random() * .46);
+  petal.style.setProperty('--drift', `${(Math.random() - .5) * 210}px`);
+  petal.style.setProperty('--duration', `${duration}s`);
+  petal.style.setProperty('--delay', `-${Math.random() * duration}s`);
+  scene.appendChild(petal);
+}
+</script>
+</body></html>
