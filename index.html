@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex">
 <title>Litsi sale de la poderosa UNEJAM</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#4f3545;--muted:#8f6b7e;--pink:#eaa3b8;--rose:#c76d91;--deep:#8d3f66;--glass:#fffafaa8;--mx:50%;--my:30%}
 *{box-sizing:border-box}
@@ -49,9 +49,26 @@ border:1px solid #ffffffc4;box-shadow:0 40px 100px #9f5e8030,0 1px 0 #fff inset,
 .divider i:last-child{transform:scaleX(-1)}
 .divider b{width:7px;height:7px;transform:rotate(45deg);background:var(--rose);border-radius:1px}
 .countdown{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(7px,1.7vw,16px)}
-.unit{position:relative;overflow:hidden;border-radius:20px;background:linear-gradient(160deg,#fff,#ffeef4);border:1px solid #f3dce4;box-shadow:0 10px 26px #bc82961c;padding:clamp(18px,3vw,30px) 4px 18px;transition:transform .35s}
+.unit{--w:clamp(56px,17.5vw,148px);position:relative;width:var(--w);justify-self:center;transition:transform .35s}
 .unit:hover{transform:translateY(-4px)}
-.unit::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:#f0d3de;opacity:.8}
+.flip{--h:calc(var(--w)*1.14);position:relative;width:var(--w);height:var(--h);perspective:800px;border-radius:16px;box-shadow:0 18px 32px #a2527a3a,0 3px 8px #a2527a26}
+.flip .half,.flip .flap{position:absolute;left:0;right:0;height:50%;overflow:hidden;font-family:'Barlow Condensed','DM Sans',sans-serif;font-weight:700;font-variant-numeric:tabular-nums;font-size:calc(var(--h)*.74);color:#3f1e33;letter-spacing:.01em;white-space:nowrap}
+.flip .half span,.flip .flap span{position:absolute;left:0;right:0;height:var(--h);display:flex;align-items:center;justify-content:center;padding-top:.02em}
+.flip .top{top:0;border-radius:16px 16px 2px 2px;background:linear-gradient(#fff,#fff5f8)}
+.flip .top span{top:0}
+.flip .bottom{bottom:0;border-radius:2px 2px 16px 16px;background:linear-gradient(#fdeaf1,#fff)}
+.flip .bottom span{bottom:0}
+.flip .flap{z-index:3;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.flip .flap.top{transform-origin:50% 100%;animation:fTop .3s cubic-bezier(.45,0,1,1) forwards}
+.flip .flap.bottom{transform-origin:50% 0;transform:rotateX(90deg);animation:fBot .3s .29s cubic-bezier(0,0,.25,1) both}
+@keyframes fTop{to{transform:rotateX(-90deg);filter:brightness(.88)}}
+@keyframes fBot{from{filter:brightness(.88)}to{transform:rotateX(0);filter:none}}
+.flip::after{content:"";position:absolute;left:0;right:0;top:calc(50% - 1px);height:2px;z-index:5;background:#3a1a2e8c;box-shadow:0 1px 0 #ffffffb3;pointer-events:none}
+.flip .tab{position:absolute;top:calc(50% - 8px);width:13px;height:16px;z-index:6;background:linear-gradient(90deg,#fff,#ecd3de 60%,#d9b4c5);border:1px solid #cfa7ba;box-shadow:0 2px 3px #8d3f6638;pointer-events:none}
+.flip .tab.l{left:-7px;border-radius:4px 2px 2px 4px}
+.flip .tab.r{right:-7px;border-radius:2px 4px 4px 2px;transform:scaleX(-1)}
+.unit .label{margin-top:clamp(14px,2.2vw,22px);font-size:clamp(9px,1.5vw,13px);letter-spacing:.18em;font-weight:700;color:#5a3a4d;white-space:nowrap}
+@media(max-width:520px){.unit .label{letter-spacing:.04em}}
 .num{position:relative;z-index:1;font-family:'Playfair Display',Georgia,serif;font-variant-numeric:tabular-nums;font-size:clamp(30px,6vw,62px);line-height:1.1;color:#7d3d5c;letter-spacing:-.05em}
 .label{margin-top:12px;font-size:clamp(9px,1.4vw,11px);letter-spacing:.16em;color:#825a6d;font-weight:700;text-transform:uppercase}
 .progress{margin:34px auto 0;max-width:520px}
@@ -101,7 +118,7 @@ border:1px solid #ffffffc4;box-shadow:0 40px 100px #9f5e8030,0 1px 0 #fff inset,
 #list button{display:block;width:100%;text-align:left;border:0;background:none;font:500 13px 'DM Sans',sans-serif;color:var(--ink);padding:10px 12px;border-radius:12px;cursor:pointer}
 #list button:hover{background:#f8e3ea}
 #list button.on{background:#f3d3df;color:var(--deep);font-weight:700}
-@media(max-width:520px){.card{border-radius:26px}.card::before{inset:10px;border-radius:18px}.corner{display:none}.unit{border-radius:14px;padding:20px 2px 14px}.label{letter-spacing:0}.pmeta{font-size:10px}}
+@media(max-width:520px){.card{border-radius:26px}.card::before{inset:10px;border-radius:18px}.corner{display:none}.label{letter-spacing:0}.pmeta{font-size:10px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.scene{display:none}.reveal{opacity:1;transform:none}}
 </style>
 </head>
@@ -129,16 +146,16 @@ border:1px solid #ffffffc4;box-shadow:0 40px 100px #9f5e8030,0 1px 0 #fff inset,
   <h1 class="heading reveal" style="--i:2" id="heading">Litsi, te falta esto para salir de<em>la poderosa UNEJAM</em></h1>
   <div class="divider reveal" style="--i:3" aria-hidden="true"><i></i><b></b><i></i></div>
   <section class="countdown reveal" style="--i:4" role="timer" aria-label="Tiempo restante para que Litsi salga de la UNEJAM">
-    <div class="unit"><div class="num" id="days">00</div><div class="label">Días</div></div>
-    <div class="unit"><div class="num" id="hours">00</div><div class="label">Horas</div></div>
-    <div class="unit"><div class="num" id="minutes">00</div><div class="label">Minutos</div></div>
-    <div class="unit"><div class="num" id="seconds">00</div><div class="label">Segundos</div></div>
+    <div class="unit"><div class="flip" id="days"></div><div class="label">Días</div></div>
+    <div class="unit"><div class="flip" id="hours"></div><div class="label">Horas</div></div>
+    <div class="unit"><div class="flip" id="minutes"></div><div class="label">Minutos</div></div>
+    <div class="unit"><div class="flip" id="seconds"></div><div class="label">Segundos</div></div>
   </section>
   <div class="progress reveal" style="--i:5">
     <div class="bar"><span id="fill"></span></div>
     <div class="pmeta"><span>Camino recorrido</span><span id="pct">0%</span></div>
   </div>
-  <time class="date reveal" style="--i:6" datetime="2027-01-28T00:00:00-05:00"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>28 de enero de 2027</time>
+  <time class="date reveal" style="--i:6" datetime="2027-01-08T00:00:00-05:00"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>8 de enero de 2027</time>
 </main>
 
 <div id="player" role="region" aria-label="Reproductor de música">
@@ -161,20 +178,30 @@ const SEARCH = 'https://itunes.apple.com/search?term=olivia+rodrigo&media=music&
 const target = Date.parse(document.querySelector('time').dateTime);
 const heading = document.getElementById('heading');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
-const digits = ['days','hours','minutes','seconds'].map(id => document.getElementById(id));
+function makeFlip(el){
+  el.innerHTML = '<div class="half top"><span>00</span></div><div class="half bottom"><span>00</span></div><i class="tab l"></i><i class="tab r"></i>';
+  const top = el.querySelector('.top span'), bot = el.querySelector('.bottom span');
+  let cur = '00';
+  const flap = (pos, txt) => { const d = document.createElement('div'); d.className = 'flap ' + pos; d.innerHTML = '<span></span>'; d.firstChild.textContent = txt; el.appendChild(d); return d; };
+  return { set(v, animate){
+    if (v === cur) return;
+    const old = cur; cur = v;
+    el.querySelectorAll('.flap').forEach(n => n.remove());
+    top.textContent = v;
+    if (!animate || reduced.matches){ bot.textContent = v; return; }
+    bot.textContent = old;
+    const ft = flap('top', old), fb = flap('bottom', v);
+    setTimeout(() => { if (cur === v) bot.textContent = v; ft.remove(); fb.remove(); }, 640);
+  }};
+}
+const digits = ['days','hours','minutes','seconds'].map(id => makeFlip(document.getElementById(id)));
 const fill = document.getElementById('fill'), pctEl = document.getElementById('pct');
 const done = document.createElement('em'); done.textContent = '¡Ya saliste de la poderosa UNEJAM!';
 
 function update(animate = true){
   const total = Math.max(0, Math.ceil((target - Date.now()) / 1000));
   const parts = [Math.floor(total/86400), Math.floor(total%86400/3600), Math.floor(total%3600/60), total%60];
-  digits.forEach((d,i) => {
-    const v = String(parts[i]).padStart(2,'0');
-    if (d.textContent === v) return;
-    d.textContent = v;
-    if (animate && !reduced.matches && d.animate)
-      d.animate([{transform:'translateY(.22em)',opacity:.4},{transform:'translateY(0)',opacity:1}], {duration:300,easing:'cubic-bezier(.18,.67,.36,1)'});
-  });
+  digits.forEach((f,i) => f.set(String(parts[i]).padStart(2,'0'), animate));
   const p = Math.min(1, Math.max(0, (Date.now() - START) / (target - START)));
   fill.style.width = (p*100).toFixed(1) + '%';
   pctEl.textContent = (p*100).toFixed(1) + '%';
